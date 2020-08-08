@@ -9,8 +9,7 @@ module.exports = {
     "number-leading-zero": null,
     "max-nesting-depth": 6,
     "selector-max-compound-selectors": 6,
-    "selector-max-id" : 1,
-    "order/properties-alphabetical-order": null
+    "selector-max-id" : 1
   },
   ignore: ["blockless-at-rules"]
 };

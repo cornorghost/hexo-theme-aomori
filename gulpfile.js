@@ -45,7 +45,6 @@ gulp.task('css', function () {
         'source/stylesheets/github.css',
         'source/stylesheets/tocbot.css',
         'source/stylesheets/nprogress.css',
-        'source/stylesheets/perfect-scrollbar.css',
         'source/stylesheets/style.scss'
       ])
       .pipe(plumber({

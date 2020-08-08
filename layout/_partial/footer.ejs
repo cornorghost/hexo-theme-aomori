@@ -1,10 +1,14 @@
 <footer class="footer">
     <div class="footer-inner">
         <div class="footer-info">
-            <span>&copy; 2013 - <%= date(new Date(), 'YYYY') %> <%= config.title %></span>
+            <span>&copy; 2020 - <%= date(new Date(), 'YYYY') %> <%= config.motto %></span>
+        </div>
+		<div class="footer-icp">
+            <a href="www.beian.miit.gov.cn">京ICP备19029619号</a>
         </div>
         <div class="footer-powered">
-            <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a> Theme · Powered By Hexo
+			<img src="https://github.githubassets.com/favicons/favicon.png" alt="github" />
+            <a href="https://github.com/cornorghost">Github</a>
         </div>
     </div>
 </footer>
@@ -51,7 +55,7 @@
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?<%= config.aomori_baidu_analytics %>";
+        hm.src = "https://hm.baidu.com/hm.js?<%=  config.aomori_baidu_analytics  %>";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
