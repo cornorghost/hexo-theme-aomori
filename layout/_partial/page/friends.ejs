@@ -1,8 +1,22 @@
 <div class="friends-links clearfix">
+	<% colors= ['#27ea80','#3366FF','#ff5473','#df27ea', '#31ac76', '#ea4563', '#31a6a0', '#8e7daa', '#4fad7b', '#f99f13', '#f85200', '#666666', '#119da4', '#13505b', '#ccc', '#ccc', '#3c4859'] %>
     <% for (var link in site.data.friends) { %>
-    <a href="<%= site.data.friends[link].url %>" rel="nofollow" target="_blank"> <%= site.data.friends[link].name %> </a>
+	<% random1 = Math.floor(Math.random() * 12) + 0; %>
+    <a href="<%= site.data.friends[link].url %>" rel="nofollow" target="_blank" style="border: 1px dashed <%= colors[random1] %>"> <%= site.data.friends[link].name %> </a>
     <% } %>
 </div>
+<script type="text/javascript">
+	len = $(".friends-links").length - 1;
+	$(".widget_ui_tags .items a").each(function(i) {
+		var let = new Array( '27ea80','3366FF','ff5473','df27ea', '31ac76', 'ea4563', '31a6a0', '8e7daa', '4fad7b', 'f99f13', 'f85200', '666666');
+		var random1 = Math.floor(Math.random() * 12) + 0;
+		var num = Math.floor(Math.random() * 5 + 12);
+		$(this).attr('style', 'border-color: #' + let[random1]);
+		if ($(this).next().length > 0) {
+			last = $(this).next().position().left
+		}
+	});
+</script>
 
 <% if (post.content){ %>
 <article
