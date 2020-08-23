@@ -1,10 +1,6 @@
 
 /* Font */
-
-@font-face {
-    font-family: 'oswald';
-    src: url('../fonts/oswald-regular-webfont.woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
 /* Colors */
 
@@ -37,6 +33,12 @@ a:visited {
 
 a:hover {
     color: $color-light;
+}
+
+button {
+    outline: none;
+    border-width: 0;
+    background: $color-type;
 }
 
 .clearfix::after {
@@ -90,16 +92,21 @@ a:hover {
             margin-right: 10px;
         }
 
-        a {
+        &-title {
             color: $color-type;
-            font-family: 'oswald', sans-serif;
-            margin-top: -4px;
+            font-family: 'Oswald', sans-serif;
         }
 
-        .page-title {
+        &-page-title {
             font-size: 18px;
             font-weight: 300;
             margin-left: 10px;
+        }
+
+        .typed-cursor {
+            font-family: 'Oswald', sans-serif;
+            margin-left: 5px;
+            padding-bottom: 5px;
         }
     }
 
@@ -233,7 +240,11 @@ a:hover {
 
     .inner {
         padding-right: 300px;
-        // .inner-main {}
+        
+        .inner-main {
+            position: relative;
+            width: 100%;
+        }
     }
 }
 
@@ -246,11 +257,77 @@ a:hover {
     transition: all 0.2s;
     width: 280px;
 
+    .search {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        max-height: calc(100vh - 140px);
+        margin-bottom: 20px;
+        border: 2px solid #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        z-index: 10;
+        transition: all .3s;
+
+        .form-input {
+            height: 46px;
+            line-height: 46px;
+            padding: 0 20px;
+            border: 0;
+            border-radius: 0;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &-focus {
+            border: 2px solid rgba($color-type, .2);
+            transition: all .3s;
+        }
+
+        .form-icon {
+            width: 24px;
+            height: 24px;
+            right: 6px;
+        }
+
+        &-result {
+            display: none;
+            width: 100%;
+            max-height: calc(100vh - 190px);
+            padding: 0 20px 15px;
+            background: #fff;
+            overflow-y: scroll;
+            
+            &-item {
+                display: block;
+                padding: 10px 0;
+                border-top: 1px solid #f1f1f1;
+
+                h1 {
+                    margin: 0 0 5px;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 12px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
     .widget {
         background: #fff;
         border-radius: 8px;
-        margin-bottom: 10px;
-        max-height: calc(100vh - 100px);
+        margin-bottom: 20px;
+        width: 100%;
+        max-height: calc(100vh - 254px);
         overflow-y: scroll;
         padding: 20px;
 
@@ -268,7 +345,7 @@ a:hover {
 
             .widget-title {
                 color: $color-light;
-                font-family: 'oswald', sans-serif;
+                font-family: 'Oswald', sans-serif;
                 font-size: 16px;
                 font-weight: 300;
                 text-transform: uppercase;
@@ -355,6 +432,10 @@ a:hover {
         }
     }
 
+}
+
+.sidebar-search-fix {
+    padding-top: 70px;
 }
 
 #backtop {
@@ -457,7 +538,7 @@ a:hover {
             display: flex;
             justify-content: flex-end;
             padding: 20px 0 0;
-            // font-family: 'oswald', sans-serif;
+            // font-family: 'Oswald', sans-serif;
             
             .article-more-info {
                 display: flex;
@@ -518,6 +599,7 @@ a:hover {
                 position: absolute;
                 top: 0;
                 width: 50px;
+                transition: all .3s;
             }
 
             &-content {
@@ -540,6 +622,12 @@ a:hover {
                     margin-left: 10px;
                     padding-left: 5px;
                 }
+            }
+        }
+
+        .article-tweet:hover {
+            .article-tweet-quote {
+                transform: scale(1.1);
             }
         }
     }
@@ -778,7 +866,7 @@ a:hover {
 
 .footer {
     background: $color-type;
-    font-family: 'oswald', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 13px;
     width: 100%;
 

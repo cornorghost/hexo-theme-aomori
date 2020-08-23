@@ -55,6 +55,12 @@ highlight:
 aomori_logo: /images/avatar.jpg
 ```
 
+#### 站点标题打字动画
+
+``` yml
+aomori_logo_typed_animated: true
+```
+
 #### 头部菜单
 
 ``` yml
@@ -226,13 +232,13 @@ aomori_gitalk:
 
 #### 友情链接
 
-首先创建页面
+1. 首先创建页面
 
 ```
 hexo new page friends
 ```
 
-前往 `source/friends/index.md` 文件，设置 Front-matter
+2. 前往 `source/friends/index.md` 文件，设置 Front-matter
 
 ```
 title: 友情链接 # 文章标题
@@ -240,9 +246,9 @@ layout: friends
 comment: true # 是否需要评论 true: 是 false: 否
 ```
 
-创建数据，参照 [数据文件夹](https://hexo.io/zh-cn/docs/data-files)
+3. 创建数据，参照 [数据文件夹](https://hexo.io/zh-cn/docs/data-files)
 
-创建 `source/_data/friends.json`，格式如下
+4. 创建 `source/_data/friends.json`，格式如下
 
 ```
 [
@@ -257,6 +263,50 @@ comment: true # 是否需要评论 true: 是 false: 否
   ...
 ]
 ```
+
+---
+
+## 搜索
+
+#### Algolia
+
+1. 注册 [Algolia](https://www.algolia.com/) 账号，并创建 Index
+
+2. 安装 [hexo-algolia](https://github.com/oncletom/hexo-algolia)
+
+```
+npm install --save hexo-algolia
+```
+
+3. 在站点 `_config.yml` 填入 Algolia 配置
+
+```
+algolia:
+    applicationID: 'applicationID'
+    apiKey: 'apiKey'
+    indexName: '...'
+```
+
+配置在 Algolia > API Keys 可以找到
+
+4. 运行下面的命令更新数据
+
+```
+$ export HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Git Bash
+# set HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Windows command line
+$ hexo clean
+$ hexo algolia
+```
+
+注意，以后发新文章后都需要运行 `hexo algolia` 更新搜索数据
+
+4. 在站点 `_config.yml` 打开搜索功能
+
+```
+aomori_search_algolia: true
+```
+
+Enjoy.
 
 ---
 

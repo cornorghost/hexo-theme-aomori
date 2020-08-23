@@ -14,7 +14,11 @@ module.exports = {
     "tocbot": true,
     "NProgress": true,
     "Gitalk": true,
-    "md5": true
+    "md5": true,
+    "PerfectScrollbar": true,
+    "Typed": true,
+    "algoliasearch": true,
+    "dayjs": true
   },
   extends: [
     "eslint:recommended",
@@ -23,6 +27,7 @@ module.exports = {
   ],
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-unused-vars": "off"
   }
 }

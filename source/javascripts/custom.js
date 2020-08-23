@@ -127,4 +127,84 @@ import { addNewClass, removeClass, throttle } from './class-module'
         $('.header-menu-mobile-menu').fadeOut(300)
         removeClass($('body'), 'mobile-menu-fixed')
     })
+
+    // 监听屏幕滚动修改边栏
+    window.addEventListener(
+        'scroll',
+        throttle(() => {
+            const _top =
+                document.documentElement.scrollTop || document.body.scrollTop
+            if (_top > 100) {
+                // 边栏绝对定位
+                addNewClass('.sidebar', 'sidebar-fixed')
+                // 返回顶部按钮显示
+                $('#backtop').fadeIn(300)
+            } else {
+                // 取消边栏定位
+                removeClass('.sidebar', 'sidebar-fixed')
+                // 返回顶部按钮消失
+                $('#backtop').fadeOut(300)
+            }
+        })
+    )
+
+    // Perfect Scrollbar
+    const _widget = document.querySelector('#widget')
+    const widget = new PerfectScrollbar(_widget)
+
+    // Typed
+    if (window.aomori_logo_typed_animated) {
+        const typed = new Typed('#typed', {
+            stringsElement: '#typed-strings',
+            fadeOut: true,
+            fadeOutDelay: 800,
+            typeSpeed: 100,
+        })
+    }
+
+    // Algolia
+    if (window.aomori_search_algolia) {
+        const _searchPs = document.querySelector('#search-ps')
+        const searchPs = new PerfectScrollbar(_searchPs)
+
+        const algoliaConfig = document.querySelector(
+            'meta[property="algolia:search"]'
+        ).dataset
+
+        const algoliaClient = algoliasearch(
+            algoliaConfig.applicationId,
+            algoliaConfig.apiKey
+        )
+        const algoliaIndex = algoliaClient.initIndex(algoliaConfig.indexName)
+
+        $('#search').on(
+            'keyup',
+            throttle((event) => {
+                algoliaIndex.search($('#search').val()).then(({ hits }) => {
+                    $('.search-result').slideDown()
+
+                    if (hits.length) {
+                        let searchOutputHtml = ''
+                        hits.forEach((item) => {
+                            searchOutputHtml += `<a class="search-result-item" href="${
+                                item.permalink
+                            }"><h1>${item.title}</h1><p>${dayjs(
+                                item.date
+                            ).format('YYYY-MM-DD')}</p></a>`
+                        })
+                        $('.search-result').html(searchOutputHtml)
+                    } else {
+                        $('.search-result').html('Nothing at all.')
+                    }
+                })
+            })
+        )
+        $('#search').focusin(() => {
+            addNewClass($('.search'), 'search-focus')
+        })
+        $('#search').focusout((e) => {
+            removeClass($('.search'), 'search-focus')
+            $('.search-result').slideUp()
+        })
+    }
 })()

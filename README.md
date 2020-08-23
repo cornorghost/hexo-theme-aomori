@@ -55,7 +55,13 @@ highlight:
 aomori_logo: /images/avatar.jpg
 ```
 
-#### 头部菜单
+#### Site Title Animated
+
+``` yml
+aomori_logo_typed_animated: true
+```
+
+#### Navigation Menu
 
 ``` yml
 aomori_menu:
@@ -226,13 +232,21 @@ aomori_gitalk:
 
 #### 友情链接
 
+<<<<<<< HEAD
 首先创建页面
+=======
+1. First create the page,
+>>>>>>> aomori
 
 ```
 hexo new page friends
 ```
 
+<<<<<<< HEAD
 前往 `source/friends/index.md` 文件，设置 Front-matter
+=======
+2. Go to `source/friends/index.md`，Set up `Front-matter`
+>>>>>>> aomori
 
 ```
 title: 友情链接 # 文章标题
@@ -240,9 +254,15 @@ layout: friends
 comment: true # 是否需要评论 true: 是 false: 否
 ```
 
+<<<<<<< HEAD
 创建数据，参照 [数据文件夹](https://hexo.io/zh-cn/docs/data-files)
 
 创建 `source/_data/friends.json`，格式如下
+=======
+3. Create data, refer to [Data Files](https://hexo.io/zh-cn/docs/data-files)
+
+4. Create `source/_data/friends.json`，The format is as follows
+>>>>>>> aomori
 
 ```
 [
@@ -260,6 +280,7 @@ comment: true # 是否需要评论 true: 是 false: 否
 
 ---
 
+<<<<<<< HEAD
 ## TODO
 
 - [ ] 侧边栏滚动条
@@ -267,6 +288,47 @@ comment: true # 是否需要评论 true: 是 false: 否
 
 主题仍在更新维护，欢迎 PR。
 
+=======
+## Search
+
+#### Algolia
+
+1. First create [Algolia](https://www.algolia.com/) Account. After registration is complete, create a new Index, which will be used later.
+
+2. Install [hexo-algolia](https://github.com/oncletom/hexo-algolia)
+
+```
+npm install --save hexo-algolia
+```
+
+3. Configure Algolia integration to site `_config.yml`:
+
+```
+algolia:
+    applicationID: 'applicationID'
+    apiKey: 'apiKey'
+    indexName: '...'
+```
+
+4. Run the following command to upload Index data.
+
+```
+$ export HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Git Bash
+# set HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Windows command line
+$ hexo clean
+$ hexo algolia
+```
+
+4. Turn on theme configuration at site `_config.yml`
+
+```
+aomori_search_algolia: true
+```
+
+Enjoy.
+
+---
+>>>>>>> aomori
 
 # Copyright & License
 
