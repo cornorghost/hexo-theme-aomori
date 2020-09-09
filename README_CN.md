@@ -96,9 +96,11 @@ aomori_copyright: true # or false
 aomori_social:
   -
     icon:
+    type:
     url:
   -
     icon:
+    type:
     url:
 ```
 
@@ -283,7 +285,7 @@ npm install --save hexo-algolia
 ```
 algolia:
     applicationID: 'applicationID'
-    apiKey: 'apiKey'
+    apiKey: 'apiKey' # Search-Only API Key
     indexName: '...'
 ```
 
@@ -292,8 +294,8 @@ algolia:
 4. 运行下面的命令更新数据
 
 ```
-$ export HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Git Bash
-# set HEXO_ALGOLIA_INDEXING_KEY=High-privilege API key # Use Windows command line
+$ export HEXO_ALGOLIA_INDEXING_KEY=Admin API Key # Use Git Bash
+# set HEXO_ALGOLIA_INDEXING_KEY=Admin API Key # Use Windows command line
 $ hexo clean
 $ hexo algolia
 ```
