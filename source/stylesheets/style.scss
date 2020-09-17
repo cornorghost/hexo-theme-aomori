@@ -92,11 +92,6 @@ button {
             margin-right: 10px;
         }
 
-        &-inner {
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         &-title {
             color: $color-type;
             font-family: 'Oswald', sans-serif;
@@ -242,7 +237,7 @@ button {
 .main {
     min-height: 800px;
     position: relative;
-    margin-bottom: 190px;
+    margin-bottom: 150px;
     z-index: 2;
     
     .inner {
@@ -894,7 +889,7 @@ button {
     &-inner {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px 80px;
+        padding: 0 20px 50px;
         color: $color-white;
         line-height: 22px;
         user-select: none;
