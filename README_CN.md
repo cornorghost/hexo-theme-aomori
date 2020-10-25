@@ -17,6 +17,8 @@
 
 （想到什么功能就做什么，更新完全看心情。欢迎 PR
 
+[ENGLISH](/README.md) | [CHANGELOG](/CHANGELOG.md)
+
 ## Demo
 
 [https://linhong.me](https://linhong.me)
@@ -144,6 +146,18 @@ aomori_busuanzi: true
 cover: xxx.jpg
 ```
 
+#### 封面视频
+
+使用 `完整链接`，便于使用 CDN
+
+每篇文章只能有一个封面视频，并且封面图片和封面视频只能同时存在其中一个
+
+``` yml
+video:
+  src: src # 完整视频链接
+  poster: poster # 完整视频封面图链接
+```
+
 #### 文字头部图片
 
 可配多张，使用 `相对路径 `，参照 [资源文件夹](https://hexo.io/zh-cn/docs/asset-folders)
@@ -186,8 +200,23 @@ link_refer:
     title: title
 ```
 
----
+#### 置顶
 
+在 Hexo 目录下安装依赖
+
+```
+npm i hexo-generator-index -S
+```
+
+在文章 Front-matter 增加选项
+
+```
+sticky: 100
+```
+
+更多使用方法 [点击查看](https://github.com/hexojs/hexo-generator-index)
+
+---
 
 ## 文章可选风格
 
