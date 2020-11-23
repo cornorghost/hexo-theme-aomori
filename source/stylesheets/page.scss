@@ -10,7 +10,7 @@ $color-type: #3c4859;
     margin-bottom: 60px;
 
     .article {
-        background: #fff;
+        background: var(--color-white-light);
         border-radius: 8px;
         margin-bottom: 20px;
         padding: 20px;
@@ -21,9 +21,7 @@ $color-type: #3c4859;
 
     &-links {
         a {
-            background: #fff;
-            //border-color: #119da4;
-            border: 1px dashed $color-white;
+            background: var(--color-white-light);
             border-radius: 8px;
             //border-style: dashed;
             //border-width: 1px;
@@ -36,7 +34,7 @@ $color-type: #3c4859;
         }
 
         a:hover {
-            box-shadow: 0 8px 12px #ebedf0;
+            box-shadow: 0 8px 12px var(--color-white);
         }
     }
 }

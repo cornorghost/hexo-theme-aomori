@@ -1,21 +1,27 @@
-<a href="https://github.com/lh1me/hexo-theme-aomori/releases">
-  <img src="https://github.com/lh1me/hexo-theme-aomori/workflows/Action/badge.svg" alt="Action" />
-</a>
-<a href="https://github.com/lh1me/hexo-theme-aomori/releases">
-  <img src="https://img.shields.io/github/release/lh1me/hexo-theme-aomori.svg" alt="Release" />
-</a>
-<a href="https://github.com/lh1me/hexo-theme-aomori/blob/master/LICENSE">
-  <img src="https://img.shields.io/github/license/lh1me/hexo-theme-aomori.svg" alt="license" />
-</a>
-<br/><br/>
+
+![Release](https://img.shields.io/github/release/lh1me/hexo-theme-aomori.svg)
+![NPM version](https://badge.fury.io/js/hexo.svg)
+![Required Node version](https://img.shields.io/node/v/hexo)
+![Action](https://github.com/lh1me/hexo-theme-aomori/workflows/Action/badge.svg)
+![License](https://img.shields.io/github/license/lh1me/hexo-theme-aomori.svg)
+
+<br/>
 
 ![image](https://raw.githubusercontent.com/lh1me/hexo-theme-aomori/master/docs/cover.jpg)
 
 # Aomori
 
-一款外表简约但内心华丽的 Hexo 主题。
+Hexo is a fast, simple, powerful blog framework, with ultra-fast generation speed, support for Markdown, one-click deployment and high scalability. This project is a theme developed based on a series of advantages of Hexo.
 
-（想到什么功能就做什么，更新完全看心情。欢迎 PR
+- Rich Website Style
+- Rich Theme Configuration
+- Optimize multimedia playback
+- Excellent SEO optimization
+- Responsive layout
+- Open source and continuously updated
+- ...
+
+[中文文档](/README_CN.md) | [CHANGELOG](/CHANGELOG.md)
 
 ## Demo
 
@@ -144,7 +150,19 @@ aomori_busuanzi: true
 cover: xxx.jpg
 ```
 
-#### 文字头部图片
+#### Cover Video
+
+Use `Full Link` recommend CDN
+
+Each article can only have one cover video, and only one of the cover image and the cover video can exist at the same time.
+
+``` yml
+video:
+  src: src # Full Video Link
+  poster: poster # Full Poster Link
+```
+
+#### Article Header Image
 
 可配多张，使用 `相对路径 `，参照 [资源文件夹](https://hexo.io/zh-cn/docs/asset-folders)
 
@@ -186,8 +204,23 @@ link_refer:
     title: title
 ```
 
----
+#### Top
 
+Install dependencies in the Hexo directory
+
+```
+npm i hexo-generator-index -S
+```
+
+Add options in the article Front-matter
+
+```
+sticky: 100
+```
+
+More ways to use [hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
+
+---
 
 ## 文章可选风格
 
@@ -234,21 +267,13 @@ aomori_gitalk:
 
 #### 友情链接
 
-<<<<<<< HEAD
-首先创建页面
-=======
 1. First create the page,
->>>>>>> aomori
 
 ```
 hexo new page friends
 ```
 
-<<<<<<< HEAD
-前往 `source/friends/index.md` 文件，设置 Front-matter
-=======
 2. Go to `source/friends/index.md`，Set up `Front-matter`
->>>>>>> aomori
 
 ```
 title: 友情链接 # 文章标题
@@ -256,15 +281,9 @@ layout: friends
 comment: true # 是否需要评论 true: 是 false: 否
 ```
 
-<<<<<<< HEAD
-创建数据，参照 [数据文件夹](https://hexo.io/zh-cn/docs/data-files)
-
-创建 `source/_data/friends.json`，格式如下
-=======
 3. Create data, refer to [Data Files](https://hexo.io/zh-cn/docs/data-files)
 
 4. Create `source/_data/friends.json`，The format is as follows
->>>>>>> aomori
 
 ```
 [
@@ -282,15 +301,6 @@ comment: true # 是否需要评论 true: 是 false: 否
 
 ---
 
-<<<<<<< HEAD
-## TODO
-
-- [ ] 侧边栏滚动条
-- [ ] 英文文档
-
-主题仍在更新维护，欢迎 PR。
-
-=======
 ## Search
 
 #### Algolia
@@ -330,7 +340,6 @@ aomori_search_algolia: true
 Enjoy.
 
 ---
->>>>>>> aomori
 
 # Copyright & License
 

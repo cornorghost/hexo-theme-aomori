@@ -1,21 +1,26 @@
-<a href="https://github.com/lh1me/hexo-theme-aomori/releases">
-  <img src="https://github.com/lh1me/hexo-theme-aomori/workflows/Action/badge.svg" alt="Action" />
-</a>
-<a href="https://github.com/lh1me/hexo-theme-aomori/releases">
-  <img src="https://img.shields.io/github/release/lh1me/hexo-theme-aomori.svg" alt="Release" />
-</a>
-<a href="https://github.com/lh1me/hexo-theme-aomori/blob/master/LICENSE">
-  <img src="https://img.shields.io/github/license/lh1me/hexo-theme-aomori.svg" alt="license" />
-</a>
-<br/><br/>
+![Release](https://img.shields.io/github/release/lh1me/hexo-theme-aomori.svg)
+![NPM version](https://badge.fury.io/js/hexo.svg)
+![Required Node version](https://img.shields.io/node/v/hexo)
+![Action](https://github.com/lh1me/hexo-theme-aomori/workflows/Action/badge.svg)
+![License](https://img.shields.io/github/license/lh1me/hexo-theme-aomori.svg)
+
+<br/>
 
 ![image](https://raw.githubusercontent.com/lh1me/hexo-theme-aomori/master/docs/cover.jpg)
 
 # Aomori
 
-一款外表简约但内心华丽的 Hexo 主题。
+Hexo 是一款快速、简洁且高效的博客框架，拥有超快生成速度，支持 Markdown，一键部署和高度可扩展性。本项目是基于 Hexo 一系列优势所开发出来的一款主题，主题特性如下
 
-（想到什么功能就做什么，更新完全看心情。欢迎 PR
+- 丰富的网站样式
+- 丰富的主题配置
+- 优化图片视频播放
+- 出色的SEO优化
+- 响应式布局
+- 开源并持续更新
+- ...
+
+[ENGLISH](/README.md) | [CHANGELOG](/CHANGELOG.md)
 
 ## Demo
 
@@ -144,6 +149,18 @@ aomori_busuanzi: true
 cover: xxx.jpg
 ```
 
+#### 封面视频
+
+使用 `完整链接`，便于使用 CDN
+
+每篇文章只能有一个封面视频，并且封面图片和封面视频只能同时存在其中一个
+
+``` yml
+video:
+  src: src # 完整视频链接
+  poster: poster # 完整视频封面图链接
+```
+
 #### 文字头部图片
 
 可配多张，使用 `相对路径 `，参照 [资源文件夹](https://hexo.io/zh-cn/docs/asset-folders)
@@ -186,8 +203,23 @@ link_refer:
     title: title
 ```
 
----
+#### 置顶
 
+在 Hexo 目录下安装依赖
+
+```
+npm i hexo-generator-index -S
+```
+
+在文章 Front-matter 增加选项
+
+```
+sticky: 100
+```
+
+更多使用方法 [点击查看](https://github.com/hexojs/hexo-generator-index)
+
+---
 
 ## 文章可选风格
 

@@ -2,43 +2,38 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
-/* Colors */
-
-$color-light: #119da4;
-$color-main: #13505b;
-$color-white: #ccc;
-$color-black: #040404;
-$color-type: #3c4859;
-
 /* 样式重置 */
 
 body {
-    background-color: #f0f3f6;
-    color: #666;
-    font: 14px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--color-bg);
+    font: 14px/1 PingFangSC,'Microsoft Yahei', Microsoft Sans Serif, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
 
 a {
-    color: $color-type;
+    color: var(--color-type);
     transition: all 0.2s;
 }
 
 a,
 a:visited {
-    color: $color-type;
+    color: var(--color-type);
 }
 
 a:hover {
-    color: $color-light;
+    color: var(--color-light);
 }
 
 button {
     outline: none;
     border-width: 0;
-    background: $color-type;
+    background: var(--color-type);
+}
+
+img:not([src]):not([srcset]) {
+    visibility: hidden;
 }
 
 .clearfix::after {
@@ -53,7 +48,7 @@ button {
 /* 1px 下划线 */
 
 .hairline::after {
-    border: 0 solid #ebedf0;
+    border: 0 solid var(--color-white);
     border-bottom-width: 1px;
     bottom: -50%;
     box-sizing: border-box;
@@ -88,12 +83,16 @@ button {
         line-height: 80px;
         padding-left: 5px;
 
+        &-inner {
+            display: flex;
+        }
+
         &-avatar {
             margin-right: 10px;
         }
 
         &-title {
-            color: $color-type;
+            color: var(--color-type);
             font-family: 'Oswald', sans-serif;
         }
 
@@ -119,18 +118,47 @@ button {
         &-inner {
             line-height: 40px;
             margin-right: 5px;
+            display: flex;
 
             a {
-                border-radius: 5px;
-                color: $color-type;
+                margin: 0 20px 0 0;
+                color: var(--color-type);
                 font-size: 14px;
-                padding: 10px;
+                letter-spacing: 0;
             }
-    
-            a:hover {
-                background: $color-type;
-                color: #fefefe;
+
+            a:hover,
+            a:active {
+                letter-spacing: 1px;
             }
+            
+            a::after,
+            a::before {
+                backface-visibility: hidden;
+                border: 1px solid rgba(#fff, 0);
+                bottom: 0;
+                content: ' ';
+                display: block;
+                margin: 0 auto;
+                position: relative;
+                transition: all 280ms ease-in-out;
+                width: 0;
+            }
+            
+            a:hover::after,
+            a:hover::before {
+                backface-visibility: hidden;
+                border-color: var(--color-type);
+                transition: width 350ms ease-in-out;
+                width: 80%;
+            }
+            
+            a:hover::before {
+                bottom: auto;
+                top: 0;
+                width: 80%;
+            }
+
         }
 
         &-social {
@@ -139,12 +167,12 @@ button {
             a {
                 align-items: center;
                 display: flex;
-                fill: $color-type;
+                fill: var(--color-type);
                 padding: 0 5px;
             }
 
             a:hover {
-                fill: $color-light;
+                fill: var(--color-light);
             }
         }
 
@@ -157,7 +185,7 @@ button {
 
         &-inner {
             .icon {
-                color: $color-type;
+                color: var(--color-type);
                 height: 25px;
                 width: 25px;
             }
@@ -179,7 +207,7 @@ button {
     z-index: 2000;
 
     &-bg {
-        background: #fff;
+        background: var(--color-white-light);
         height: 100vh;
         left: 0;
         position: absolute;
@@ -221,7 +249,7 @@ button {
         width: 25px;
 
         .icon {
-            color: $color-type;
+            color: var(--color-type);
             height: 25px;
             width: 25px;
         }
@@ -267,7 +295,7 @@ button {
         height: auto;
         max-height: calc(100vh - 140px);
         margin-bottom: 20px;
-        border: 2px solid #fff;
+        border: 2px solid var(--color-white-light);
         border-radius: 8px;
         overflow: hidden;
         z-index: 10;
@@ -283,10 +311,15 @@ button {
             &:focus {
                 box-shadow: none;
             }
+
+            &::placeholder {
+                font-family: 'Oswald', sans-serif;
+                color: var(--color-white);
+            }
         }
 
         &-focus {
-            border: 2px solid rgba($color-type, .2);
+            border: 2px solid rgba(var(--color-type), .2);
             transition: all .3s;
         }
 
@@ -301,13 +334,13 @@ button {
             width: 100%;
             max-height: calc(100vh - 190px);
             padding: 0 20px 15px;
-            background: #fff;
+            background: var(--color-white-light);
             overflow-y: scroll;
             
             &-item {
                 display: block;
                 padding: 10px 0;
-                border-top: 1px solid #f1f1f1;
+                border-top: 1px solid var(--color-white);
 
                 h1 {
                     margin: 0 0 5px;
@@ -325,11 +358,12 @@ button {
     }
 
     .widget {
-        background: #fff;
+        position: relative;
+        background: var(--color-white-light);
         border-radius: 8px;
         margin-bottom: 20px;
         width: 100%;
-        max-height: calc(100vh - 194px);
+        max-height: calc(100vh - 210px);
         overflow-y: scroll;
         padding: 20px;
 
@@ -346,7 +380,7 @@ button {
             }
 
             .widget-title {
-                color: $color-light;
+                color: var(--color-white);
                 font-family: 'Oswald', sans-serif;
                 font-size: 16px;
                 font-weight: 300;
@@ -377,7 +411,7 @@ button {
             }
 
             li::before {
-                background: $color-main;
+                background: var(--color-main);
                 content: '';
                 height: 14px;
                 left: 0;
@@ -390,7 +424,7 @@ button {
         .widget-tags {
             .tag-list {
                 .tag-list-item {
-                    border: 1px dashed $color-white;
+                    border: 1px dashed var(--color-white);
                     border-radius: 3px;
                     box-sizing: border-box;
                     display: inline-block;
@@ -401,15 +435,15 @@ button {
                     transition: all 0.2s;
 
                     a {
-                        color: $color-type;
+                        color: var(--color-white);
                     }
                 }
 
                 .tag-list-item:hover {
-                    border-color: $color-main;
+                    border-color: var(--color-main);
 
                     a {
-                        color: $color-main;
+                        color: var(--color-main);
                     }
                 }
             }
@@ -422,7 +456,7 @@ button {
             }
 
             li::before {
-                background: $color-light;
+                background: var(--color-light);
                 border-radius: 2px;
                 content: '';
                 height: 5px;
@@ -441,7 +475,8 @@ button {
 }
 
 #backtop {
-    background: #fff;
+    display: none;
+    background: var(--color-white-light);
     border-radius: 8px;
     cursor: pointer;
     display: none;
@@ -460,8 +495,7 @@ button {
     margin-bottom: 60px;
 
     .article {
-        position: relative;
-        background: #fff;
+        background: var(--color-white-light);
         border-radius: 8px;
         margin-bottom: 20px;
         padding: 20px;
@@ -472,13 +506,13 @@ button {
 
         .article-top {
             position: absolute;
-            right: 20px;
-            top: 20px;
+            right: 0;
+            top: 0;
             width: 40px;
             height: 20px;
             line-height: 20px;
-            color: #fff;
-            background-color: $color-light;
+            color: var(--color-white-light);
+            background-color: var(--color-light);
             font-size: 12px;
             font-weight: bold;
             text-align: center;
@@ -487,7 +521,13 @@ button {
         }
 
         .article-inner {
+            position: relative;
             display: flex;
+
+            // 首页文章流不显示视频
+            video {
+                display: none;
+            }
 
             .article-feature {
                 flex: 0 0 260px;
@@ -509,7 +549,7 @@ button {
                 }
 
                 a::before {
-                    background-color: rgba(#000, 0.16);
+                    background-color: var(--color-black);
                     bottom: 0;
                     content: '';
                     left: 0;
@@ -517,6 +557,7 @@ button {
                     right: 0;
                     top: 0;
                     transition: all 0.8s ease 0s;
+                    opacity: .16;
                     z-index: 1;
                 }
 
@@ -537,16 +578,16 @@ button {
                 text-overflow: ellipsis;
 
                 .article-title {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                     font-weight: 500;
                     padding: 0 0 10px;
 
                     a {
-                        color: $color-type;
+                        color: var(--color-type);
                         line-height: 1.3;
 
                         &:hover {
-                            color: $color-main;
+                            color: var(--color-main);
                         }
                     }
                 }
@@ -568,8 +609,8 @@ button {
 
                 .article-date {
                     align-items: center;
-                    border-left: 3px solid $color-light;
-                    color: $color-white;
+                    border-left: 3px solid var(--color-light);
+                    color: var(--color-white);
                     display: flex;
                     margin-left: 10px;
                     padding-left: 8px;
@@ -577,7 +618,7 @@ button {
 
                 .article-category {
                     align-items: center;
-                    border-left: 3px solid $color-light;
+                    border-left: 3px solid var(--color-light);
                     display: flex;
                     margin-left: 10px;
                     padding-left: 8px;
@@ -585,7 +626,7 @@ button {
 
                 .article-tag {
                     align-items: center;
-                    border-left: 3px solid $color-light;
+                    border-left: 3px solid var(--color-light);
                     display: flex;
                     margin-left: 10px;
                     padding-left: 8px;
@@ -604,17 +645,29 @@ button {
             }
 
             a {
-                color: $color-white;
+                color: var(--color-white);
 
                 &:hover {
-                    color: $color-type;
+                    color: var(--color-type);
                 }
             }
+        }
+
+        // Video 
+        .article-video {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
         // Tweet
         .article-tweet {
             position: relative;
+
+            // 首页文章流不显示视频
+            video {
+                display: none;
+            }
 
             &-quote {
                 height: 50px;
@@ -640,7 +693,7 @@ button {
 
                 &-common {
                     align-items: center;
-                    border-left: 3px solid $color-light;
+                    border-left: 3px solid var(--color-light);
                     display: flex;
                     margin-left: 10px;
                     padding-left: 5px;
@@ -662,33 +715,40 @@ button {
     margin-bottom: 60px;
 
     .article {
-        background: #fff;
+        background: var(--color-white-light);
         border-radius: 8px;
         margin-bottom: 20px;
         padding: 20px;
         position: relative;
 
         .article-gallery {
-            a {
-                display: block;
-                margin-bottom: 0.5rem;
-
-                img {
-                    width: 100%;
-                }
+            img {
+                width: 100%;
+                cursor: pointer;
             }
+
+            &-active {
+                background: var(--color-type);
+                opacity: 1;
+            }
+        }
+
+        // Video 
+        .article-video {
+            border-radius: 5px;
+            overflow: hidden;
         }
 
         .article-title {
             font-size: 1.4rem;
             font-weight: 300;
-            padding-top: 10px;
+            padding-top: 15px;
 
             a {
-                color: $color-type;
+                color: var(--color-type);
 
                 &:hover {
-                    color: $color-main;
+                    color: var(--color-main);
                 }
             }
         }
@@ -696,6 +756,11 @@ button {
         .article-entry {
             padding-bottom: 60px;
             position: relative;
+
+            .plyr {
+                border-radius: 5px;
+                overflow: hidden;
+            }
         }
 
         .article-more-info {
@@ -710,8 +775,8 @@ button {
 
             .article-date {
                 align-items: center;
-                border-left: 3px solid $color-light;
-                color: $color-white;
+                border-left: 3px solid var(--color-light);
+                color: var(--color-white);
                 display: flex;
                 margin-right: 10px;
                 padding-left: 8px;
@@ -719,7 +784,7 @@ button {
 
             .article-category {
                 align-items: center;
-                border-left: 3px solid $color-light;
+                border-left: 3px solid var(--color-light);
                 display: flex;
                 margin-right: 10px;
                 padding-left: 8px;
@@ -727,7 +792,7 @@ button {
 
             .article-tag {
                 align-items: center;
-                border-left: 3px solid $color-light;
+                border-left: 3px solid var(--color-light);
                 display: flex;
                 margin-right: 10px;
                 padding-left: 8px;
@@ -743,20 +808,21 @@ button {
                 }
             }
             
-            .article-busuanzi {
+            .article-busuanzi,
+            .article-counter {
                 align-items: center;
-                border-left: 3px solid $color-light;
-                color: $color-white;
+                border-left: 3px solid var(--color-light);
+                color: var(--color-white);
                 display: flex;
                 margin-right: 10px;
                 padding-left: 8px;
             }
 
             a {
-                color: $color-white;
+                color: var(--color-white);
 
                 &:hover {
-                    color: $color-type;
+                    color: var(--color-type);
                 }
             }
         }
@@ -768,7 +834,7 @@ button {
 
             .article-nav-link-wrap {
                 .article-nav-caption {
-                    color: $color-white;
+                    color: var(--color-white);
                     font-size: 12px;
                     margin-bottom: 5px;
                 }
@@ -785,7 +851,7 @@ button {
             position: relative;
 
             p {
-                border-left: 3px solid $color-light;
+                border-left: 3px solid var(--color-light);
                 font-size: 13px;
                 line-height: 1.6;
                 margin: 0;
@@ -799,7 +865,7 @@ button {
             position: relative;
 
             p {
-                border-left: 3px solid $color-light;
+                border-left: 3px solid var(--color-light);
                 font-size: 13px;
                 line-height: 1.6;
                 margin-bottom: 10px;
@@ -816,7 +882,7 @@ button {
             position: relative;
 
             h3 {
-                color: $color-black;
+                color: var(--color-black);
                 font-size: 16px;
                 font-weight: 300;
                 margin-bottom: 15px;
@@ -829,7 +895,7 @@ button {
             top: 10rem;
 
             .share-title {
-                color: #aaa;
+                color: var(--color-type);
                 font-size: 13px;
                 padding-bottom: 10px;
                 text-align: center;
@@ -837,11 +903,11 @@ button {
 
             .share-item {
                 align-items: center;
-                background-color: #fff;
+                background-color: var(--color-white-light);
                 border-radius: 50%;
                 box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
                 display: flex;
-                fill: $color-type;
+                fill: var(--color-type);
                 height: 2rem;
                 justify-content: center;
                 margin-bottom: 10px;
@@ -849,7 +915,7 @@ button {
                 width: 2rem;
 
                 &:hover {
-                    fill: $color-light;
+                    fill: var(--color-light);
                 }
             }
         }
@@ -857,7 +923,7 @@ button {
 }
 
 .archives-wrap {
-    background: #fff;
+    background: var(--color-white-light);
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 20px;
@@ -866,18 +932,18 @@ button {
         padding-bottom: 8px;
 
         a {
-            color: $color-white;
+            color: var(--color-white);
             font-size: 14px;
 
             &:hover {
-                color: $color-main;
+                color: var(--color-main);
             }
         }
     }
 
     .archive-article {
         h1 {
-            color: $color-type;
+            color: var(--color-type);
             font-size: 14px;
             font-weight: 400;
             line-height: 22px;
@@ -904,14 +970,14 @@ button {
         margin-top: -3px;
         width: 100%;
         height: auto;
-        background: $color-type;
+        background: var(--color-type);
     }
 
     &-inner {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px 50px;
-        color: $color-white;
+        color: var(--color-white);
         line-height: 22px;
         user-select: none;
 
@@ -921,11 +987,11 @@ button {
         }
 
         a {
-            color: $color-white;
+            color: var(--color-white);
             text-decoration: underline;
 
             &:hover {
-                color: #fff;
+                color: var(--color-white-light);
             }
         }
     }
@@ -937,18 +1003,18 @@ button {
     padding: 30px 0 0;
 
     .page-number {
-        color: $color-main;
+        color: var(--color-main);
         padding: 10px;
         margin: 0 5px;
-        background: #fff;
+        background: var(--color-white-light);
         border-radius: 8px;
 
         &:hover {
-            color: $color-light;
+            color: var(--color-light);
         }
 
         &.current {
-            color: $color-white;
+            color: var(--color-white);
             cursor: not-allowed;
         }
     }
@@ -956,17 +1022,17 @@ button {
     .extend {
         padding: 10px;
         margin: 0 5px;
-        background: #fff;
+        background: var(--color-white-light);
         border-radius: 8px;
 
         &:hover {
-            color: $color-light;
+            color: var(--color-light);
         }
     }
 }
 
 .comments {
-    background: #fff;
+    background: var(--color-white-light);
     border-radius: 8px;
     padding: 20px;
     position: relative;

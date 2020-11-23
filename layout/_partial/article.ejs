@@ -3,7 +3,17 @@
 
     <div class="article-inner">
 
-        <%- partial('post/gallery') %>
+        <% if (!post.video){ %>
+          <%- partial('post/gallery') %>
+        <% } %>
+        
+        <% if (post.video && post.layout !== 'tweet'){ %>
+          <div class="article-video">
+            <video class="article-video-plyr" data-poster="<%= post.video.poster %>">
+              <source src="<%= post.video.src %>">
+            </video>
+          </div>
+        <% } %>
 
         <% if ((post.link || post.title) && post.layout !== 'tweet'){ %>
         <header class="article-header">
@@ -42,6 +52,7 @@
                 有 <span id="busuanzi_value_page_pv">0</span> 人看过
             </div>
             <% } %>
+
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">

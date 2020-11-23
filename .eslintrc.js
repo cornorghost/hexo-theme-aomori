@@ -18,7 +18,10 @@ module.exports = {
     "PerfectScrollbar": true,
     "Typed": true,
     "algoliasearch": true,
-    "dayjs": true
+    "dayjs": true,
+    "Swiper": true,
+    "Plyr": true,
+    "LazyLoad": true
   },
   extends: [
     "eslint:recommended",
