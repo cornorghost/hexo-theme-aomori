@@ -466,6 +466,12 @@ img:not([src]):not([srcset]) {
                 width: 5px;
             }
         }
+
+        .category-list-child {
+            li::before {
+                background: var(--color-light);
+            }
+        }
     }
 
 }
